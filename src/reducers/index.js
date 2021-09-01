@@ -1,13 +1,12 @@
-// const initialState = {
+const initialState = {
+  toto: 123,
+};
 
-// };
+const reducer = (state = initialState, action = {}) => {
+  switch (action.type) {
+    default:
+      return state;
+  }
+};
 
-// const reducer = (state = initialState, action = {}) => {
-//   switch (action.type) {
-//     default:
-//       return state;
-//   }
-// };
-
-// export default reducer;
-
+export default reducer;
