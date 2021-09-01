@@ -5,9 +5,10 @@ const Form = () => {
   const messageInProgress = useSelector((state) => state.messageInProgress);
   const dispatch = useDispatch();
 
-  const handleChange = () => {
+  const handleChange = (event) => {
     dispatch({
       type: 'CHANGE_MESSAGE',
+      newMessage: event.target.value,
     });
   };
 

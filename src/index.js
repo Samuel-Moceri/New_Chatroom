@@ -13,7 +13,7 @@ import store from 'src/store';
 //    => crée une structure d'objets imbriqués (DOM virtuel)
 const rootReactElement = (
   <Provider store={store}>
-    <App />;
+    <App />
   </Provider>
 );
 

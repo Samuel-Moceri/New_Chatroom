@@ -1,6 +1,6 @@
 const initialState = {
   listOfMessages: [],
-  messageInProgress: 'test',
+  messageInProgress: "il n'y a rien ici",
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -8,7 +8,7 @@ const reducer = (state = initialState, action = {}) => {
     case 'CHANGE_MESSAGE':
       return {
         ...state,
-        messageInProgress: 'Truc bidon',
+        messageInProgress: action.newMessage,
       };
     default:
       return state;
