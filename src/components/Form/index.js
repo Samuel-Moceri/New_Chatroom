@@ -13,7 +13,12 @@ const Form = () => {
 
   return (
     <form className="form">
-      <input onChange={handleChange} className="form-input" type="text" value={messageInProgress} />
+      <input
+        onChange={handleChange}
+        className="form-input"
+        type="text"
+        value={messageInProgress}
+      />
       <button className="form-btn" type="submit">Envoyer</button>
     </form>
   );
