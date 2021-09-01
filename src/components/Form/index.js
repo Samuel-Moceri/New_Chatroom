@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { Send } from 'react-feather';
 import './style.scss';
 
 const Form = () => {
@@ -28,8 +29,12 @@ const Form = () => {
         className="form-input"
         type="text"
         value={messageInProgress}
+        placeholder="Saisissez votre message"
+        aria-label="Message"
       />
-      <button className="form-btn" type="submit">Envoyer</button>
+      <button aria-label="Envoyer" className="form-btn" type="submit">
+        <Send />
+      </button>
     </form>
   );
 };

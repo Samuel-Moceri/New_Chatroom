@@ -11,7 +11,7 @@ const initialState = {
       message: 'T\'as pas des super-croquettes ?',
     },
   ],
-  messageInProgress: 'Ah ça march',
+  messageInProgress: '',
 };
 
 const reducer = (state = initialState, action = {}) => {

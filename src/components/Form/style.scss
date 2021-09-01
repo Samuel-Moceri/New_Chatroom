@@ -1,0 +1,19 @@
+@use 'src/styles/vars';
+
+.form {
+  margin-top: auto; // un margin auto appliqué à un enfant d'un parent flex prendra une part de l'espace dispo sur cet axe
+  display: flex;
+
+  &-input {
+    flex-grow: 1;
+    border: 0;
+    padding: 1rem;
+    font-size: 1em;
+    font-family: inherit;
+  }
+  
+  &-btn {
+    background-color: white;
+    border: 0;
+  }
+}
