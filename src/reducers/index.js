@@ -1,5 +1,10 @@
 const initialState = {
-  listOfMessages: [],
+  listOfMessages: [{
+    id: 1,
+    author: 'salut',
+    message: 'coucou',
+  },
+],
   messageInProgress: "il n'y a rien ici",
 };
 

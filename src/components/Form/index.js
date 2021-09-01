@@ -12,8 +12,16 @@ const Form = () => {
     });
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    dispatch({
+      type: 'SEND_MESSAGE',
+    });
+  };
+
   return (
-    <form className="form">
+    <form onSubmit={handleSubmit} className="form">
       <input
         onChange={handleChange}
         className="form-input"
