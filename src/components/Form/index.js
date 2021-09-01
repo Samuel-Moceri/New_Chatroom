@@ -14,10 +14,11 @@ const Form = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    dispatch({
-      type: 'SEND_MESSAGE',
-    });
+    if (messageInProgress.trim().length > 0) {
+      dispatch({
+        type: 'SEND_MESSAGE',
+      });
+    }
   };
 
   return (
