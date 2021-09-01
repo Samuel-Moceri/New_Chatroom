@@ -1,15 +1,22 @@
-import './style.scss';
+import { useSelector } from 'react-redux';
 import Message from 'src/components/Message';
 
-const Messages = () => (
-  <section className="messages">
-    <Message author="Moi" text="coucou"/>
-    <Message author="Toi" text="coucou"/>
-    <Message author="Moi" text="ca va ?"/>
-    <Message author="Toi" text="bien et toi ?"/>
-    <Message author="Moi" text="tranquille"/>
-    <Message author="Toi" text="React"/>
-  </section>
-);
+import './style.scss';
+
+const Messages = () => {
+  const messages = useSelector((state) => state.listOfMessages);
+
+  return (
+    <section className="messages">
+      {messages.map((currentMessage) => (
+        <Message
+          key={currentMessage.id}
+          author={currentMessage.author}
+          text={currentMessage.message}
+        />
+      ))}
+    </section>
+  );
+};
 
 export default Messages;
