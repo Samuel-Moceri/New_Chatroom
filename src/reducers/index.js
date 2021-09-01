@@ -1,5 +1,6 @@
 const initialState = {
-  toto: 123,
+  listOfMessages: [],
+  messageInProgress: 'test',
 };
 
 const reducer = (state = initialState, action = {}) => {
