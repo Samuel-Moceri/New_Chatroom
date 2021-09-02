@@ -8,7 +8,8 @@ const LoginForm = () => {
   const handleEmailChange = (event) => {
     // console.log('je veux changer la valeur du champs email');
     dispatch({
-      type: 'CHANGE_EMAIL_VALUE',
+      type: 'CHANGE_VALUE',
+      key: 'userEmail',
       newValue: event.target.value,
     });
   };
@@ -16,7 +17,8 @@ const LoginForm = () => {
   const handlePasswordChange = (event) => {
     // console.log('je veux changer la valeur du champs email');
     dispatch({
-      type: 'CHANGE_PASSWORD_VALUE',
+      type: 'CHANGE_VALUE',
+      key: 'userPassword',
       newValue: event.target.value,
     });
   };
@@ -39,6 +41,9 @@ const LoginForm = () => {
         className="settings-input"
         type="password"
       />
+      <input type="text" placeholder="Prénom" />
+      <input type="text" placeholder="Nom" />
+      <input type="text" placeholder="Ville" />
       <button className="settings-btn" type="submit">Se connecter</button>
     </form>
   );

@@ -58,6 +58,12 @@ const reducer = (state = initialState, action = {}) => {
         userPassword: action.newValue,
       };
 
+    case 'CHANGE_VALUE':
+      return {
+        ...state,
+        [action.key]: action.newValue, // avec des [] on peut mettre un nom de propriété dynamique
+      };
+
     default:
       return state;
   }
