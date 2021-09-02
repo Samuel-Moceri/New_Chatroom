@@ -13,6 +13,8 @@ const initialState = {
   ],
   messageInProgress: '',
   loginOpen: true,
+  userEmail: '',
+  userPassword: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -32,12 +34,30 @@ const reducer = (state = initialState, action = {}) => {
         listOfMessages: [ // + une liste de messages
           ...state.listOfMessages, // contenant les messages actuels
           { // + 1 nouveau
-            id: '3',
-            author: 'coucou',
+            id: Math.random(),
+            author: 'Super Chat',
             message: state.messageInProgress,
           },
         ],
       };
+    case 'TOGGLE_OPEN':
+      return {
+        ...state,
+        loginOpen: !state.loginOpen,
+      };
+
+    case 'CHANGE_EMAIL_VALUE':
+      return {
+        ...state,
+        userEmail: action.newValue,
+      };
+
+    case 'CHANGE_PASSWORD_VALUE':
+      return {
+        ...state,
+        userPassword: action.newValue,
+      };
+
     default:
       return state;
   }

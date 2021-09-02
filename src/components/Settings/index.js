@@ -1,15 +1,22 @@
 import { X } from 'react-feather';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import './style.scss';
 import LoginForm from './LoginForm';
 
 const Settings = () => {
   const isOpen = useSelector((state) => state.loginOpen);
-  // console.log(isOpen);
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch({
+      type: 'TOGGLE_OPEN',
+    });
+  };
+
   return (
     <div className="settings">
-      <button className="settings-toggler" type="button" aria-label="Ouvrir/Fermer">
+      <button onClick={handleClick} className="settings-toggler" type="button" aria-label="Ouvrir/Fermer">
         <X size="100%" />
       </button>
       {isOpen && <LoginForm />}

@@ -13,8 +13,7 @@ const Form = () => {
     });
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const sendMessage = () => {
     if (messageInProgress.trim().length > 0) {
       dispatch({
         type: 'SEND_MESSAGE',
@@ -22,18 +21,31 @@ const Form = () => {
     }
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    sendMessage();
+  };
+
+  const handleKeyup = (event) => {
+    if (event.code === 'Enter' && !event.shiftKey) {
+      sendMessage();
+    }
+  };
+
   return (
     <form onSubmit={handleSubmit} className="form">
-      <input
+      {/* <input onChange={handleChange} className="form-input" type="text" value={messageInProgress} /> */}
+      <textarea
         onChange={handleChange}
         className="form-input"
         type="text"
         value={messageInProgress}
+        onKeyUp={handleKeyup}
         placeholder="Saisissez votre message"
-        aria-label="Message"
+        aria-label="Votre message"
       />
       <button aria-label="Envoyer" className="form-btn" type="submit">
-        <Send />
+        <Send color="#13405d" />
       </button>
     </form>
   );
