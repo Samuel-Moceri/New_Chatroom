@@ -1,5 +1,5 @@
-import Input from './Input';
 import { useDispatch } from 'react-redux';
+import Input from './Input';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -9,17 +9,6 @@ const LoginForm = () => {
     dispatch({
       type: 'LOGIN',
     });
-    // axios.post('http://localhost:3001/login', {
-    //   email: 'bouclierman@herocorp.io',
-    //   password: 'jennifer',
-    // })
-    //   .then((response) => {
-    //     console.log('succès', response);
-    //     // ici on pourra modifier le state avec le pseudo
-    //   })
-    //   .catch((error) => {
-    //     console.log('erreur', error);
-    //   });
   };
 
   return (
@@ -45,18 +34,3 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
-// un middleware pour Redux est une fonction qui sera capable de faire qqch
-// en voyant passer une action
-// on doit écrire une fonction qui retourne une fonction qui retourne une fonction
-// parce que Redux va l'utiliser ainsi, il fait ce qu'on appelle du currying
-// dans la fonction qu'on écrit on aura accès à 3 choses :
-// le store : cette entité gardienne du state et donc ses méthodes dispatch, getState
-// next : ???
-// action: l'action qui été dispatchée
-
-const debugMiddleware = (store) => (next) => (action) => {
-  console.log(action);
-  next(action); // je laisse passer l'action - je dis que j'ai fini de travailler
-};
-
-export default debugMiddleware;
