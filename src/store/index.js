@@ -1,11 +1,21 @@
-/* eslint-disable no-underscore-dangle */
-import { createStore } from 'redux';
-
+import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from 'src/reducers';
 
-const store = createStore(
-  reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+// on importe les middlewares
+import debugMiddleware from 'src/middlewares/debug';
+
+// on met bout à bout tous nos middlewares
+const middlewares = applyMiddleware(
+  debugMiddleware,
+  // secondMiddleware,
 );
+
+// on met bout à bout le redux devtools et nos middlewares
+// https://github.com/zalmoxisus/redux-devtools-extension#12-advanced-store-setup
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const enhancers = composeEnhancers(middlewares);
+
+// on crée le store à qui l'on passe le reducer et les middlewares (avec le devtool)
+const store = createStore(reducer, enhancers);
 
 export default store;
