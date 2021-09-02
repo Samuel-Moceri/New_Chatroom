@@ -13,7 +13,7 @@ const initialState = {
   ],
   messageInProgress: '',
   loginOpen: true,
-  userEmail: '',
+  userEmail: '', // on pourrait s'abstenir de mettr la valeur initiale pour nos champs controlés
   userPassword: '',
 };
 
@@ -46,17 +46,17 @@ const reducer = (state = initialState, action = {}) => {
         loginOpen: !state.loginOpen,
       };
 
-    case 'CHANGE_EMAIL_VALUE':
-      return {
-        ...state,
-        userEmail: action.newValue,
-      };
+    // case 'CHANGE_EMAIL_VALUE':
+    //   return {
+    //     ...state,
+    //     userEmail: action.newValue,
+    //   };
 
-    case 'CHANGE_PASSWORD_VALUE':
-      return {
-        ...state,
-        userPassword: action.newValue,
-      };
+    // case 'CHANGE_PASSWORD_VALUE':
+    //   return {
+    //     ...state,
+    //     userPassword: action.newValue,
+    //   };
 
     case 'CHANGE_VALUE':
       return {
