@@ -1,0 +1,54 @@
+@use 'sass:color';
+@use 'src/styles/vars';
+
+.settings {
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: 1rem;   
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  &-toggler {
+    border: 0;
+    background-color: white;
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    margin-right: 1rem;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &-form {
+    width: 14.5em;
+  }
+
+  &-input {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 3px;
+    border: 0;
+
+    &:focus {
+      outline: 2px solid #5300FF;
+    }
+  }
+
+  &-btn {
+    width: 100%;
+    background-color: #5300FF;
+    border: 0;
+    padding: 0.5rem;
+    color: white;
+    border-radius: 3px;
+
+    &:focus, &:hover {
+      background-color: color.scale(#5300FF, $lightness: -20%);
+    }
+  }
+}

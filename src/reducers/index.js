@@ -12,6 +12,7 @@ const initialState = {
     },
   ],
   messageInProgress: '',
+  loginOpen: true,
 };
 
 const reducer = (state = initialState, action = {}) => {
