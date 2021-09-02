@@ -3,11 +3,13 @@ import reducer from 'src/reducers';
 
 // on importe les middlewares
 import debugMiddleware from 'src/middlewares/debug';
+import APIMiddleware from 'src/middlewares/api';
 
 // on met bout à bout tous nos middlewares
 const middlewares = applyMiddleware(
   debugMiddleware,
-  // secondMiddleware,
+  APIMiddleware,
+  // troisiemeMiddleware
 );
 
 // on met bout à bout le redux devtools et nos middlewares
