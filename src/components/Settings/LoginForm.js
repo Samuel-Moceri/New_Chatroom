@@ -1,8 +1,9 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Input from './Input';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const message = useSelector((state) => state.errorMessage);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -13,6 +14,7 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="settings-form">
+      {message && <p>{message}</p>}
       <Input
         placeholder="Email"
         aria-label="Email"

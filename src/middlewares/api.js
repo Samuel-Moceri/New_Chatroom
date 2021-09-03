@@ -18,8 +18,11 @@ const APIMiddleware = (store) => (next) => (action) => {
         });
       })
       .catch((error) => {
-        alert('Mauvais identifiant / mot de passe');
         console.error(error);
+        store.dispatch({
+          type: 'LOGIN_ERROR',
+          message: 'Mauvais identifiant / mot de passe',
+        });
       });
   }
   next(action); // dans tous les cas je laisse passer l'action

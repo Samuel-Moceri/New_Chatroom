@@ -43,28 +43,49 @@ const reducer = (state = initialState, action = {}) => {
           },
         ],
       };
+
     case 'TOGGLE_OPEN':
       return {
         ...state,
         loginOpen: !state.loginOpen,
       };
+
     case 'CHANGE_VALUE':
       return {
         ...state,
         [action.key]: action.newValue, // avec des [] on peut mettre un nom de propriété dynamique
       };
+
     case 'SAVE_USER':
       return {
         ...state,
         logged: true,
         pseudo: action.pseudo,
         loading: false,
+        userEmail: '',
+        userPassword: '',
       };
+
     case 'LOGIN':
       return {
         ...state,
         loading: true,
       };
+
+    case 'LOGOUT':
+      return {
+        ...state, 
+        logged: false,
+        pseudo: 'Utilisateur anonyme',
+      };
+
+    case 'LOGIN_ERROR':
+      return{
+        ...state,
+        loading: false,
+        errorMessage: action.message,
+      };
+
     default:
       return state;
   }

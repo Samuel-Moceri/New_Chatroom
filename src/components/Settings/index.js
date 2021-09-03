@@ -15,6 +15,12 @@ const Settings = () => {
       type: 'TOGGLE_OPEN',
     });
   };
+  const handleLogout = () => {
+    dispatch({
+      type: 'LOGOUT',
+    })
+  };
+
   return (
     <div className={isOpen ? 'settings' : 'settings settings--hidden'}>
       <button onClick={handleClick} className="settings-toggler" type="button" aria-label="Ouvrir/Fermer">
@@ -22,7 +28,12 @@ const Settings = () => {
       </button>
       {!logged && !loading && <LoginForm />}
       {!logged && loading && <p>Veuillez patienter</p>}
-      {logged && <p>Connecté en tant que {pseudo}</p>}
+      {logged && (
+        <p>
+          Connecté en tant que {pseudo}
+          <button onClick={handleLogout} type="button">Se déconnecter</button>
+        </p>
+      )}
     </div>
   );
 };
