@@ -13,8 +13,11 @@ const initialState = {
   ],
   messageInProgress: '',
   loginOpen: true,
-  userEmail: '', // on pourrait s'abstenir de mettr la valeur initiale pour nos champs controlés
-  userPassword: '',
+  userPassword: '', // on pourrait s'abstenir de mettr la valeur initiale pour nos champs controlés
+  userEmail: '',
+  pseudo: 'Utilisateur anonyme',
+  logged: false,
+  loading: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -35,7 +38,7 @@ const reducer = (state = initialState, action = {}) => {
           ...state.listOfMessages, // contenant les messages actuels
           { // + 1 nouveau
             id: Math.random(),
-            author: 'Super Chat',
+            author: state.pseudo,
             message: state.messageInProgress,
           },
         ],
@@ -45,25 +48,23 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         loginOpen: !state.loginOpen,
       };
-
-    // case 'CHANGE_EMAIL_VALUE':
-    //   return {
-    //     ...state,
-    //     userEmail: action.newValue,
-    //   };
-
-    // case 'CHANGE_PASSWORD_VALUE':
-    //   return {
-    //     ...state,
-    //     userPassword: action.newValue,
-    //   };
-
     case 'CHANGE_VALUE':
       return {
         ...state,
         [action.key]: action.newValue, // avec des [] on peut mettre un nom de propriété dynamique
       };
-
+    case 'SAVE_USER':
+      return {
+        ...state,
+        logged: true,
+        pseudo: action.pseudo,
+        loading: false,
+      };
+    case 'LOGIN':
+      return {
+        ...state,
+        loading: true,
+      };
     default:
       return state;
   }

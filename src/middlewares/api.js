@@ -10,9 +10,12 @@ const APIMiddleware = (store) => (next) => (action) => {
       password: state.userPassword,
     })
       .then((response) => {
-        console.log('succès', response.data.pseudo);
-        // TODO : ici il faudra aller mettre le pseudo dans le state
-        // challenge : réfléchir à comment on pourrait faire
+        // une fois la réponse obtenu on veut mettre les données reçues dans le state ?
+        // -> on dispatch une action pour véhiculer ces données et les traduire dans le reducer
+        store.dispatch({
+          type: 'SAVE_USER',
+          pseudo: response.data.pseudo,
+        });
       })
       .catch((error) => {
         alert('Mauvais identifiant / mot de passe');
