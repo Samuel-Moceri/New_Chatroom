@@ -5,7 +5,7 @@ import './style.scss';
 const Message = ({ author, text }) => (
   <article className="message">
     <p className="message-author">{author}</p>
-    <p className="message-content">{text}</p>
+    <pre className="message-content">{text}</pre>
   </article>
 );
 

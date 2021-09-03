@@ -18,9 +18,8 @@ const Settings = () => {
   const handleLogout = () => {
     dispatch({
       type: 'LOGOUT',
-    })
+    });
   };
-
   return (
     <div className={isOpen ? 'settings' : 'settings settings--hidden'}>
       <button onClick={handleClick} className="settings-toggler" type="button" aria-label="Ouvrir/Fermer">

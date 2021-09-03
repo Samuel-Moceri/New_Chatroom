@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 const Input = ({ inputKey, ...props }) => {
   const value = useSelector((state) => state[inputKey]);
   const dispatch = useDispatch();
-
   const handleChange = (event) => {
     dispatch({
       type: 'CHANGE_VALUE',
@@ -14,7 +13,6 @@ const Input = ({ inputKey, ...props }) => {
       key: inputKey,
     });
   };
-
   return (
     <input
       value={value}
